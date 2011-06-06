@@ -10,7 +10,7 @@ The following mixins are currenty available:
   * `striped-background`
   * `striped-background-alarm-clock`
   * `black-background`
-  * `white-background`  
+  * `white-background`
 
 ## Contributing
 
@@ -22,5 +22,3 @@ Thanks to Git and GitHub, contributing is ridiculously easy.
 4. Commit and push your code.
 5. Send a pull request.
 6. After reviewing your code it will be merged into the main repo.
-
-foo
