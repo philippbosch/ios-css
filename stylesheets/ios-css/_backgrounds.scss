@@ -1,0 +1,27 @@
+@import "compass/css3/images";
+@import "compass/css3/background-size";
+
+@mixin striped-background($wide-stripe-color: #c5ccd4, $narrow-stripe-color: #cbd2d8) {
+    @include background(linear-gradient(left, 
+        $wide-stripe-color 5/7,
+        $narrow-stripe-color 5/7,
+        $narrow-stripe-color 1
+    ));
+    @include background-size(7px 512px);
+}
+
+@mixin striped-background-alarm-clock {
+    @include striped-background($wide-stripe-color: #5e7585, $narrow-stripe-color: #647d8e);
+}
+
+@mixin black-background {
+    @include background(#000);
+}
+
+@mixin white-background {
+    @include background(#fff);
+}
+
+@mixin gray-background {
+    @include background(#98989c);
+}
