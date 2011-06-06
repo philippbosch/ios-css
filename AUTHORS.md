@@ -1,0 +1,3 @@
+# Authors
+
+* Philipp Bosch, @philippbosch
