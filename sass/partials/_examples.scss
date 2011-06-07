@@ -1,0 +1,6 @@
+.example {
+    padding: 32px 0;
+    @include clearfix;
+    margin-left: -10px;
+    padding-left: 10px;
+}

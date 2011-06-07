@@ -1,0 +1,167 @@
+/* line 17, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 115, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 5, ../sass/examples.scss */
+html {
+  height: 100%;
+}
+
+/* line 9, ../sass/examples.scss */
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+/* line 16, ../sass/examples.scss */
+#app {
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #c5ccd4), color-stop(71.429%, #cbd2d8), color-stop(100%, #cbd2d8));
+  background: -webkit-linear-gradient(left, #c5ccd4 71.429%, #cbd2d8 71.429%, #cbd2d8 100%);
+  background: -moz-linear-gradient(left, #c5ccd4 71.429%, #cbd2d8 71.429%, #cbd2d8 100%);
+  background: -o-linear-gradient(left, #c5ccd4 71.429%, #cbd2d8 71.429%, #cbd2d8 100%);
+  background: linear-gradient(left, #c5ccd4 71.429%, #cbd2d8 71.429%, #cbd2d8 100%);
+  -moz-background-size: 7px 512px;
+  -webkit-background-size: 7px 512px;
+  -o-background-size: 7px 512px;
+  background-size: 7px 512px;
+}
+
+/* line 1, ../sass/partials/examples/_background.scss */
+#app {
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #c5ccd4), color-stop(71.429%, #cbd2d8), color-stop(100%, #cbd2d8));
+  background: -webkit-linear-gradient(left, #c5ccd4 71.429%, #cbd2d8 71.429%, #cbd2d8 100%);
+  background: -moz-linear-gradient(left, #c5ccd4 71.429%, #cbd2d8 71.429%, #cbd2d8 100%);
+  background: -o-linear-gradient(left, #c5ccd4 71.429%, #cbd2d8 71.429%, #cbd2d8 100%);
+  background: linear-gradient(left, #c5ccd4 71.429%, #cbd2d8 71.429%, #cbd2d8 100%);
+  -moz-background-size: 7px 512px;
+  -webkit-background-size: 7px 512px;
+  -o-background-size: 7px 512px;
+  background-size: 7px 512px;
+}
+/* line 4, ../sass/partials/examples/_background.scss */
+#app.striped-background-alarm-clock {
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #5e7585), color-stop(71.429%, #647d8e), color-stop(100%, #647d8e));
+  background: -webkit-linear-gradient(left, #5e7585 71.429%, #647d8e 71.429%, #647d8e 100%);
+  background: -moz-linear-gradient(left, #5e7585 71.429%, #647d8e 71.429%, #647d8e 100%);
+  background: -o-linear-gradient(left, #5e7585 71.429%, #647d8e 71.429%, #647d8e 100%);
+  background: linear-gradient(left, #5e7585 71.429%, #647d8e 71.429%, #647d8e 100%);
+  -moz-background-size: 7px 512px;
+  -webkit-background-size: 7px 512px;
+  -o-background-size: 7px 512px;
+  background-size: 7px 512px;
+}
+/* line 8, ../sass/partials/examples/_background.scss */
+#app.black-background {
+  background: black;
+}
+/* line 12, ../sass/partials/examples/_background.scss */
+#app.white-background {
+  background: white;
+}
+/* line 16, ../sass/partials/examples/_background.scss */
+#app.gray-background {
+  background: #98989c;
+}
+
+/* line 41, ../sass/partials/examples/_navigationbar.scss */
+.navigationbar {
+  height: 44px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  /* @include background(linear-gradient(
+      top,
+      $navigationbar-bright-color,
+      #889bb3 50%,
+      #8094ae 50%,
+      $navigationbar-dark-color
+  )); */
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.6)), color-stop(2.273%, rgba(255, 255, 255, 0.4)), color-stop(50%, rgba(255, 255, 255, 0.2)), color-stop(50%, rgba(255, 255, 255, 0.15)), color-stop(95.455%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.4)));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4) 2.273%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 95.455%, rgba(0, 0, 0, 0.4));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4) 2.273%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 95.455%, rgba(0, 0, 0, 0.4));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4) 2.273%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 95.455%, rgba(0, 0, 0, 0.4));
+  background: linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4) 2.273%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 95.455%, rgba(0, 0, 0, 0.4));
+  background-color: #6d84a2;
+  text-align: center;
+  line-height: 44px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 -1px;
+}
+
+/* line 45, ../sass/partials/examples/_navigationbar.scss */
+.has-navigationbar {
+  padding-top: 44px;
+}

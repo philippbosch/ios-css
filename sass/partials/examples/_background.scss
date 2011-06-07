@@ -1,0 +1,19 @@
+#app {
+    @include striped-background;
+    
+    &.striped-background-alarm-clock {
+        @include striped-background-alarm-clock;
+    }
+    
+    &.black-background {
+        @include black-background;
+    }
+    
+    &.white-background {
+        @include white-background;
+    }
+    
+    &.gray-background {
+        @include gray-background;
+    }
+}

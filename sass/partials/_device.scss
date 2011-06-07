@@ -1,0 +1,18 @@
+#device {
+    position: fixed;
+    top: 32px;
+    left: 272px;
+    width: 320px;
+    height: 460px;
+    border: 16px solid #000;
+    border-top-width: 96px;
+    border-bottom-width: 96px;
+    @include border-radius(24px);
+    @include box-shadow(#555 0 0 0 2px, rgba(0,0,0,0.7) 4px 4px 10px, rgba(51,51,51,0.5) 0 0 2px 1px inset);
+    @include float(left);
+    
+    iframe {
+        width: 320px;
+        height: 460px;
+    }
+}
