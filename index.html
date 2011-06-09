@@ -3,98 +3,65 @@
     <head>
         <meta charset="utf-8">
         <title>ios-css examples</title>
+        <link href="http://fonts.googleapis.com/css?family=Kreon:light,regular,bold|Droid+Sans" rel="stylesheet" type="text/css" />
         <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <section id="toc">
+        <nav id="toc">
+            <h1>Background</h1>
             <ul>
                 <li>
-                    <a href="#background">Background</a>
-                    <ul>
-                        <li>
-                            <a href="examples/background-striped-background.html" target="device">striped background</a>
-                        </li>
-                        <li>
-                            <a href="examples/background-striped-background-alarm-clock.html" target="device">striped background, alarm clock style</a>
-                        </li>
-                    </ul>
+                    <a href="examples/background-striped-background.html" target="device-iframe">striped background</a>
                 </li>
                 <li>
-                    <a href="#navigationbar">Navigation Bar</a>
-                    <ul>
-                        <li>
-                            <a href="examples/navigationbar.html" target="device">standard blueish</a>
-                        </li>
-                    </ul>
+                    <a href="examples/background-striped-background-alarm-clock.html" target="device-iframe">striped background, alarm clock style</a>
                 </li>
                 <li>
-                    <a href="#navigationbar">Navigation Bar</a>
+                    <a href="examples/background-black.html" target="device-iframe">black background</a>
                 </li>
                 <li>
-                    <a href="#list">List</a>
+                    <a href="examples/background-white.html" target="device-iframe">white background</a>
+                </li>
+                <li>
+                    <a href="examples/background-custom-color-noisy.html" target="device-iframe">custom color, noisy</a>
                 </li>
             </ul>
-        </section>
+            
+            <h1>Navigation Bar</h1>
+            <ul>
+                <li>
+                    <a href="examples/navigationbar.html" target="device-iframe">standard blueish</a>
+                </li>
+                <li>
+                    <a href="examples/navigationbar-black.html" target="device-iframe">black</a>
+                </li>
+                <li>
+                    <a href="examples/navigationbar-custom-color.html" target="device-iframe">custom color</a>
+                </li>
+                <li>
+                    <a href="examples/navigationbar-custom-color-noisy.html" target="device-iframe">custom color, noisy</a>
+                </li>
+            </ul>
+        </nav>
         
         <section id="device">
-            <iframe src="examples/background-striped-background.html" id="device"></iframe>
+            <div class="screen">
+                <header class="statusbar">
+                    <span class="reception">
+                        <span class="segment active"></span>
+                        <span class="segment active"></span>
+                        <span class="segment active"></span>
+                        <span class="segment active"></span>
+                        <span class="segment"></span>
+                    </span>
+                    <span class="carrier">Carrier</span>
+                    <span class="time">9:42 PM</span>
+                    <span class="battery"></span>
+                </header>
+                <iframe src="about:blank" name="device-iframe"></iframe>
+            </div>
         </section>
         
-        <section id="examples">
-            
-            <article class="example" id="background">
-                <header>
-                    <h1>Background</h1>
-                </header>
-                
-                <div class="app"></div>
-                
-                <aside>
-                    <nav>
-                        <button class="switch" data-switch-class="default" data-switch-default>striped-background</button>
-                        <button class="switch" data-switch-class="alarm-clock">striped-background-alarm-clock</button>
-                        <button class="switch" data-switch-class="black">black-background</button>
-                        <button class="switch" data-switch-class="white">white-background</button>
-                        <button class="switch" data-switch-class="gray">gray-background</button>
-                    </nav>
-                </aside>
-                
-            </article>
-            
-            <article class="example" id="toolbar">
-                <header>
-                    <h1>Toolbar</h1>
-                </header>
-                
-                <div class="app"></div>
-                
-                <footer>
-                </footer>
-            </article>
-            
-            <article class="example" id="navigationbar">
-                <header>
-                    <h1>Navigation Bar</h1>
-                </header>
-                
-                <div class="app"></div>
-                
-                <footer>
-                </footer>
-            </article>
-            
-            <article class="example" id="list">
-                <header>
-                    <h1>List</h1>
-                </header>
-                
-                <div class="app"></div>
-                
-                <footer>
-                </footer>
-            </article>
-            
-        </section>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
         <script src="javascripts/scripts.js"></script>
     </body>

@@ -3,16 +3,123 @@
     top: 32px;
     left: 272px;
     width: 320px;
-    height: 460px;
+    height: 480px;
     border: 16px solid #000;
     border-top-width: 96px;
     border-bottom-width: 96px;
     @include border-radius(24px);
-    @include box-shadow(#555 0 0 0 2px, rgba(0,0,0,0.7) 4px 4px 10px, rgba(51,51,51,0.5) 0 0 2px 1px inset);
+    @include box-shadow(
+        #000 0 0 1px,
+        #999 0 0 0 3px,
+        rgba(0,0,0,0.7) 1px 1px 10px
+    );
     @include float(left);
+    
+    .statusbar {
+        display: block;
+        height: 20px;
+        position: relative;
+        padding: 0 4px;
+        border-bottom: 1px solid #5D6368;
+        @include box-sizing(border-box);
+        @include background(linear-gradient(top, #F0F5F8, #BEC5C9));
+        @include border-top-radius(2px);
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 18px;
+        @include text-shadow(rgba(255, 255, 255, 0.8) 0px 1px 0px);
+        
+        .reception {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 19px;
+            height: 100%;
+            margin-right: 2px;
+            
+            .segment {
+                @include float(left);
+                width: 3px;
+                height: 10px;
+                margin-left: 1px;
+                @include box-sizing(border-box);
+                @include box-shadow(
+                    rgba(255,255,255,0.8) 0 1px,
+                    rgba(0,0,0,0.2) 0 -1px inset
+                );
+                
+                &.active {
+                    background: #2fbfff;
+                    border-top: 1px solid rgba(255,255,255,0.6);
+                }
+                
+                &:first-child {
+                    margin-left: 0;
+                }
+                
+                &:nth-child(1) {
+                    margin-top: 8px;
+                    height: 2px;
+                }
+                
+                &:nth-child(2) {
+                    margin-top: 6px;
+                    height: 4px;
+                }
+                
+                &:nth-child(3) {
+                    margin-top: 4px;
+                    height: 6px;
+                }
+                
+                &:nth-child(4) {
+                    margin-top: 2px;
+                    height: 8px;
+                }
+            }
+        }
+        
+        .carrier {
+            position: absolute;
+            top: 0px;
+            left: 25px;
+            color: rgba(0,0,0,0.6);
+        }
+        
+        .time {
+            display: block;
+            text-align: center;
+            color: black;
+        }
+        
+        .battery {
+            position: absolute;
+            top: 4px;
+            right: 5px;
+            width: 19px;
+            height: 10px;
+            @include background(linear-gradient(top,
+                #70d83a 0%,
+                #a1f563 19%,
+                #a1f563 33%,
+                #298c08 75%,
+                #3a9e17 90%
+            ));
+            border: 1px solid #5b6375;
+            @include border-radius(1px);
+        }
+    }
+    
+    .screen {
+        @include box-shadow(rgba(255,255,255,0.1) 0 0 2px 1px);
+        @include border-top-radius(2px);
+        line-height: 0;
+    }
     
     iframe {
         width: 320px;
         height: 460px;
+        background: #000;
     }
 }

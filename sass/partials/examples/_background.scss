@@ -16,4 +16,10 @@
     &.gray-background {
         @include gray-background;
     }
+    
+    &.custom-color-noisy-background {
+        @include background(noise(0.8, 0.08, 100, true));
+        background-color: lighten(yellow, 40%);
+        @include background-size(auto);
+    }
 }

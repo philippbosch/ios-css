@@ -4,9 +4,10 @@ html, body {
 
 body {
     margin-left: 658px;
-    font-family: sans-serif;
+    font-family: "Droid Sans", sans-serif;
     font-size: 18px;
-    background: #333;
+    font-weight: 300;
+    background: #707070 noise();
     color: #666;
 }
 
@@ -16,6 +17,13 @@ a {
 }
 
 h1 {
+    font-family: "Droid Serif", serif;
     font-size: 32px;
     margin-bottom: 16px;
+    color: #444;
+    font-weight: bold;
+    @include text-shadow(
+        rgba(255,255,255,0.3) 0 1px,
+        rgba(0,0,0,0.7) 0 -1px
+    );
 }

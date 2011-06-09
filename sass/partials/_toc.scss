@@ -4,39 +4,35 @@
     top: 0;
     bottom: 0;
     width: 240px;
-    padding: 32px 16px;
+    padding: 24px 16px;
     @include box-sizing(border-box);
     
-    & > ul {
-        border: 1px solid rgba(0,0,0,0.4);
-        border-bottom-color: rgba(255,255,255,0.12);
-        border-right-color: rgba(255,255,255,0.12);
-        @include border-radius(6px);
+    h1 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    ul {
+        margin-bottom: 24px;
         
-        & > li {
-            border: 1px solid rgba(255,255,255,0.12);
-            border-bottom-color: rgba(0,0,0,0.4);
-            border-right-color: rgba(0,0,0,0.4);
-            @include background(linear-gradient(top, rgba(255,255,255,0.05), rgba(0,0,0,0.05)));
-            
-            &:first-child {
-                @include border-top-radius(4px);
-            }
-            
-            &:last-child {
-                @include border-bottom-radius(4px);
-            }
-            
-            a {
-                padding: 8px 12px;
-                display: block;
-            }
-            
-            & > a {
-                font-weight: bold;
-                color: #f90;
-                @include text-shadow(rgba(white, 0.2) 0 -1px);
-            }
+        li {
+            font-size: 12px;
+            @include text-shadow(rgba(0,0,0,0.5) 0 1px 0);
+            margin-bottom: 6px;
+            position: relative;
+        }
+    }
+    
+    a {
+        display: block;
+        @include transition(color -webkit-transform, .4s);
+        
+        &.selected, &:hover {
+            color: #AAA;
+        }
+        
+        &.selected {
+            @include translateX(10px);
         }
     }
 }

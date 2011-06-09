@@ -2,6 +2,18 @@
     @include navigationbar;
 }
 
+.navigationbar.black {
+    @include navigationbar-black;
+}
+
+.navigationbar.green {
+    @include navigationbar(green);
+}
+
+.navigationbar.green-noisy{
+    @include navigationbar-noisy(#530);
+}
+
 .has-navigationbar {
     @include has-navigationbar;
 }
