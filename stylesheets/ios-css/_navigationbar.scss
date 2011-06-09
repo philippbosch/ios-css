@@ -1,19 +1,28 @@
-@mixin navigationbar($background-color: #6d84a2) {
+$navigationbar-background-color-blue: #6d84a2;
+$navigationbar-glossy-gradient: linear-gradient(
+    top,
+    rgba(white,.7),
+    rgba(white,.4) 1/44,
+    rgba(white,.2) .5,
+    rgba(white,.15) .5,
+    rgba(white,0) 42/44, // why does 43 not work?
+    rgba(black,.4)
+);
+
+@mixin navigationbar(
+    $background-color: $navigationbar-background-color-blue,
+    $background-1: $navigationbar-glossy-gradient,
+    $background-2: false,
+    $background-3: false
+) {
     height: 44px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     @include box-sizing(border-box);
-    @include background(linear-gradient(
-        top,
-        rgba(white,.6),
-        rgba(white,.4) 1/44,
-        rgba(white,.2) .5,
-        rgba(white,.15) .5,
-        rgba(white,0) 42/44, // why does 43 not work?
-        rgba(black,.4)
-    ));
+    $backgrounds: compact($background-1, $background-2, $background-3);
+    @include background($backgrounds);
     background-color: $background-color;
     text-align: center;
     line-height: 44px;
@@ -23,7 +32,14 @@
     @include text-shadow(rgba(black,.5) 0 -1px);
 }
 
+@mixin navigationbar-black {
+    @include navigationbar($background-color: black);
+}
+
+@mixin navigationbar-noisy($background-color: $navigationbar-background-color-blue) {
+    @include navigationbar($background-color, $navigationbar-glossy-gradient, noise(0.6, 0.15, 100, true));
+}
+
 @mixin has-navigationbar {
     padding-top: 44px;
 }
-
