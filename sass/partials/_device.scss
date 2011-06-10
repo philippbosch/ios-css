@@ -28,6 +28,7 @@
         font-size: 14px;
         font-weight: bold;
         line-height: 18px;
+        color: #414141;
         @include text-shadow(rgba(255, 255, 255, 0.8) 0px 1px 0px);
         @include experimental(user-select, text);
         
@@ -85,7 +86,6 @@
             position: absolute;
             top: 0px;
             left: 25px;
-            color: rgba(0,0,0,0.6);
         }
         
         .time {
