@@ -56,11 +56,30 @@
                     </span>
                     <span class="carrier">Carrier</span>
                     <span class="time">9:42 PM</span>
-                    <span class="battery"></span>
+                    <span class="battery"><span class="percentage">98%</span><span class="level" /></span>
                 </header>
                 <iframe src="about:blank" name="device-iframe"></iframe>
             </div>
+            <section id="device-settings">
+                <a href="#device-settings"><span>Settings</span></a>
+                <form>
+                    <h1>Settings</h1>
+                    <fieldset>
+                        <label for="carrier-field">Carrier</label>
+                        <input type="text" id="carrier-field" name="carrier" />
+                    </fieldset>
+                    <fieldset>
+                        <label for="reception-field">Reception</label>
+                        <input type="range" id="reception-field" name="reception" min="0" max="5" step="1" value="5" />
+                    </fieldset>
+                    <fieldset>
+                        <label for="battery-field">Battery</label>
+                        <input type="range" id="battery-field" name="battery" min="0" max="100" step="1" value="100" />
+                    </fieldset>
+                </form>
+            </section>
         </section>
+        
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
         <script src="javascripts/scripts.js"></script>

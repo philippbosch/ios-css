@@ -13,7 +13,7 @@
         #999 0 0 0 3px,
         rgba(0,0,0,0.7) 1px 1px 10px
     );
-    @include float(left);
+    @include experimental(user-select, none);
     
     .statusbar {
         display: block;
@@ -29,6 +29,7 @@
         font-weight: bold;
         line-height: 18px;
         @include text-shadow(rgba(255, 255, 255, 0.8) 0px 1px 0px);
+        @include experimental(user-select, text);
         
         .reception {
             position: absolute;
@@ -97,22 +98,79 @@
             position: absolute;
             top: 4px;
             right: 5px;
-            width: 19px;
-            height: 10px;
-            @include background(linear-gradient(top,
-                #70d83a 0%,
-                #a1f563 19%,
-                #a1f563 33%,
-                #298c08 75%,
-                #3a9e17 90%
-            ));
+            width: 17px;
+            height: 8px;
+            @include background(
+                linear-gradient(top,
+                    #575757 10%,
+                    #c7c6c6 84%
+                )
+            );
             border: 1px solid #5b6375;
             @include border-radius(1px);
+            
+            .percentage {
+                position: absolute;
+                top: -5px;
+                left: -54px;
+                text-align: right;
+                width: 48px;
+            }
+            
+            $green-1: #70d83a;
+            $green-2: #a1f563;
+            $green-3: #a1f563;
+            $green-4: #298c08;
+            $green-5: #3a9e17;
+            
+            .level{
+                display: block;
+                width: 50%;
+                height: 100%;
+                
+                @include background(
+                    linear-gradient(top,
+                        $green-1 0%,
+                        $green-2 19%,
+                        $green-3 33%,
+                        $green-4 75%,
+                        $green-5 90%
+                    )
+                );
+                @include box-shadow(rgba(255,255,255,0.3) 0 0 0 1px inset);
+            }
+            
+            &.low .level {
+                @include background(
+                    linear-gradient(top,
+                        hsl(0, saturation($green-1), lightness($green-1)) 0%,
+                        hsl(0, saturation($green-2), lightness($green-2)) 19%,
+                        hsl(0, saturation($green-3), lightness($green-3)) 33%,
+                        hsl(0, saturation($green-4), lightness($green-4)) 75%,
+                        hsl(0, saturation($green-5), lightness($green-5)) 90%
+                    )
+                );
+                @include box-shadow(rgba(255,255,255,0.1) 0 0 0 1px inset);
+            }
+            
+            &.really-low {
+                color: #C00;
+            }
+            
+            &:after {
+                content: "";
+                position: absolute;
+                top: 3px;
+                right: -3px;
+                width: 1px;
+                height: 2px;
+                border: 1px solid #5b6375;
+            }
         }
     }
     
     .screen {
-        @include box-shadow(rgba(255,255,255,0.1) 0 0 2px 1px);
+        @include box-shadow(rgba(255,255,255,0.2) 0 0 2px 1px);
         @include border-top-radius(2px);
         line-height: 0;
     }
@@ -121,5 +179,92 @@
         width: 320px;
         height: 460px;
         background: #000;
+    }
+}
+
+#device-settings {
+    position: absolute;
+    top: 590px;
+    right: 0;
+    
+    & > a {
+        @include border-radius(16px);
+        padding: 3px;
+        border: 1px solid rgba(0,0,0,0);
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        
+        &, span {
+            display: block;
+            width: 16px;
+            height: 16px;
+        }
+        
+        &:hover, &:active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        &:hover {
+            @include box-shadow(
+                rgba(white,0.35) 0 -1px,
+                rgba(black,0.2) 0 1px
+            );
+        }
+        
+        &:active {
+            @include box-shadow(
+                rgba(white,0.35) 0 1px,
+                rgba(black,0.2) 0 -1px
+            );
+            
+            span {
+                margin-top: 0;
+            }
+        }
+        
+        span {
+            margin-top: -1px;
+            text-indent: -9999px;
+            background: rgba(0,0,0,0.3);
+            -webkit-mask-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%10%00%00%00%10%08%04%00%00%00%B5%FA7%EA%00%00%00%09pHYs%00%00%00H%00%00%00H%00F%C9k%3E%00%00%00%09vpAg%00%00%00%10%00%00%00%10%00%5C%C6%AD%C3%00%00%00%02bKGD%00%FF%87%8F%CC%BF%00%00%01%09IDAT%18%19%95%C1%3DK%02%01%1C%C0%E1%3F%A9%E7%9D%A6%DE%99%A6%DC%95%1Cv%BDhE%18%BD%E1%90%D0%14A%81%24%04%07%B5Fk!-%CD%0DQ%EB%7D%87%F6%3E%40S%18%B4H%04E%0Dm%7D%81%96%E8%E2%D7%24VwK%CF%23%F2_%09%25%7BX%B8%1A%BE%D3%2F%D4%A2%04%A5%14%F3f%82i*%EF%8D%F3c%5D%82%CC%A3*K%ACw%1F%B7%19%23%22A%D5%CE%02u%9A%97%C4%24%5C%EDa%91eV%3AVFdp-q%1BS%E4%A7%BC%3B%F9Uc%9E%0A%A3o%85%EB%1Cv%97%01%E9K%B9E%7F%9C%19f%99%A2L%09%EB%F3d_%FA%12n%D6%B7(%E3%E0%E0%7C%94%98%BB%3FmcH%8F%EA%A6%FD%3C%26%23X%ECzl%B0I%9D%AC%F4(n%D2%D7%19%22O%8E%1D%0F%5B~%8B%B6%E2~%924%19%D2%B4%3Cl%F9K%7B%89%A3%A2%A1%D1%F4%B0%25%C8x%8A%10%25%C2%96%87-a%DA%07%FA%AB%F1%BCw%86-%E10h%B0%8A)%A1%BE%01%25Xl%01%00%D6%20%E4%00%00%00%25tEXtdate%3Acreate%002010-02-11T00%3A53%3A02-06%3A00%D9%CE%B9E%00%00%00%25tEXtdate%3Amodify%002009-08-18T12%3A33%3A50-05%3A00%E5%C9%92%9A%00%00%00%00IEND%AEB%60%82");
+        }
+    }
+    
+    form {
+        display: none;
+        width: 320px;
+        padding: 12px;
+        @include box-sizing(border-box);
+        background: rgba(255,255,255,0.1);
+        @include border-radius(8px);
+        @include box-shadow(
+            rgba(0,0,0,0.4) 0 1px 1px 0 inset,
+            rgba(255,255,255,0.2) 0 1px
+        );
+        font-size: 12px;
+        color: #FFF;
+        @include text-shadow(rgba(0,0,0,0.3) 0 1px 0);
+        
+        h1 {
+            font-size: 18px;
+        }
+        
+        fieldset {
+            margin-top: 1em;
+            
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+        
+        label {
+            display: block;
+        }
+        
+        input {
+            width: 100%;
+            @include box-sizing(border-box);
+        }
     }
 }
