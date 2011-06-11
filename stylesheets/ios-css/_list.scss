@@ -1,0 +1,30 @@
+@mixin list($background-color: #FFF, $text-color: #000, $border-color: rgba(0,0,0,0.27)) {
+    background: $background-color;
+    border: 1px solid $border-color;
+    @include border-radius(10px);
+    
+    li {
+        height: 43px;
+        line-height: 43px;
+        border-top: 1px solid $border-color;
+        
+        &:first-child {
+            border-top: 0;
+        }
+        
+        &, a {
+            color: $text-color;
+            font-weight: bold;
+            padding: 0 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        a {
+            display: block;
+            text-decoration: none;
+            margin: 0 -8px;
+        }
+    }
+}

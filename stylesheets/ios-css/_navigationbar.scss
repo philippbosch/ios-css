@@ -37,7 +37,7 @@ $navigationbar-glossy-gradient: linear-gradient(
 }
 
 @mixin navigationbar-noisy($background-color: $navigationbar-background-color-blue) {
-    @include navigationbar($background-color, $navigationbar-glossy-gradient, noise(0.6, 0.15, 100, true));
+    @include navigationbar($background-color, $navigationbar-glossy-gradient, noise($amount: 1, $opacity: .125, $monochrome: true));
 }
 
 @mixin has-navigationbar {

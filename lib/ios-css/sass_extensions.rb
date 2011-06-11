@@ -5,37 +5,39 @@ require "chunky_png"
 require "base64"
 
 module Sass::Script::Functions
-  def noise(noise = 0.5, opacity = 0.08, size = 200, mono = false)
-    
-    # Convert SASS numbers to Ruby classes
-    noise   = noise.to_s.to_f   if noise.is_a? Sass::Script::Number
-    opacity = opacity.to_s.to_f if opacity.is_a? Sass::Script::Number
-    size    = size.to_i         if size.is_a? Sass::Script::Number
-    mono    = mono.to_bool      if mono.is_a? Sass::Script::Bool
-    
-    # Create the background image
-    bg_image = ChunkyPNG::Image.new(size, size)
-    
-    # Create a transparent foreground image
-    fg_image = ChunkyPNG::Image.new(size, size)
-    
-    # Add some noise to the foreground image
-    for i in (0..(noise * (size**2)))
-      x = rand(size.to_i)
-      y = rand(size.to_i)
-      r = rand(255)
-      a = rand(255 * opacity)
-      color = mono ? ChunkyPNG::Color.rgba(r, r, r, a) : ChunkyPNG::Color.rgba(r, rand(255), rand(255), a)
-      fg_image.set_pixel(x, y, color)
+  def noise(kwargs = {})
+    opts = {}
+    Sass::Util.map_hash({
+        "amount"     => [0..1,          "",   :Number, Sass::Script::Number.new(0.5) ],
+        "opacity"    => [0..1,          "",   :Number, Sass::Script::Number.new(0.08)],
+        "size"       => [1..512,        "px", :Number, Sass::Script::Number.new(200) ],
+        "monochrome" => [[true, false], "",   :Bool,   Sass::Script::Bool.new(false) ]
+      }) do |name, (range, units, type, default)|
+      
+      if val = kwargs.delete(name)
+        assert_type val, type, name
+        if range && !range.include?(val.value)
+          raise ArgumentError.new("$#{name}: Amount #{val} must be between #{range.first}#{units} and #{range.last}#{units}")
+        end
+      else
+        val = default
+      end
+      opts[name] = val
     end
     
-    # Mix it up
-    image = bg_image.compose(fg_image)
+    image = ChunkyPNG::Image.new(opts["size"].to_i, opts["size"].to_i)
     
-    # Save the image - will eventually save to a file but for now
-    # a base64 data url will do...
-    data  = Base64.encode64(image.to_blob).gsub("\n", "")
+    for i in (0..(opts["amount"].to_s.to_f * (opts["size"].to_i**2)))
+       x = rand(opts["size"].to_i)
+       y = rand(opts["size"].to_i)
+       r = rand(255)
+       a = rand(255 * opts["opacity"].to_s.to_f)
+       color = opts["monochrome"] ? ChunkyPNG::Color.rgba(r, r, r, a) : ChunkyPNG::Color.rgba(r, rand(255), rand(255), a)
+       image.set_pixel(x, y, color)
+    end
+    
+    data = Base64.encode64(image.to_blob).gsub("\n", "")
     Sass::Script::String.new("url('data:image/png;base64,#{data}')")
-    
   end
+  declare :noise, [], :var_kwargs => true
 end
