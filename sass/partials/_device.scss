@@ -1,9 +1,9 @@
 #device {
-    position: fixed;
-    top: 32px;
-    left: 272px;
+    @include float(left);
+    margin-top: 24px;
     width: 320px;
     height: 480px;
+    position: relative;
     border: 16px solid #000;
     border-top-width: 96px;
     border-bottom-width: 96px;
@@ -186,6 +186,7 @@
     position: absolute;
     top: 590px;
     right: 0;
+    margin-bottom: 32px;
     
     & > a {
         @include border-radius(16px);

@@ -1,13 +1,39 @@
 #toc {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 240px;
+    @include float(left);
+    width: 280px;
     padding: 24px 16px;
+    margin-right: 24px;
     @include box-sizing(border-box);
     
+    @mixin sunken {
+        @include background(
+            linear-gradient(top, rgba(255,255,255,0.4), rgba(255,255,255,0)),
+            noise($amount: 1, $opacity: .1, $monochrome: true)
+        );
+        background-color: rgba(255,255,255,0.1);
+        @include box-shadow(
+            rgba(0,0,0,0.6) 0 -1px 0,
+            rgba(255,255,255,0.4) 0 1px 0,
+            rgba(0,0,0,0.3) 0 1px 4px inset
+        );
+    }
+    
     h1 {
+        margin-bottom: 32px;
+        padding: 12px;
+        @include sunken;
+        @include border-radius(40px);
+        text-align: center;
+        
+        .version {
+            font-family: "Droid Sans", sans-serif;
+            font-weight: normal;
+            font-size: 24px;
+            color: #777;
+        }
+    }
+    
+    h2 {
         font-size: 20px;
         margin-bottom: 12px;
     }
@@ -18,21 +44,23 @@
         li {
             font-size: 12px;
             @include text-shadow(rgba(0,0,0,0.5) 0 1px 0);
-            margin-bottom: 6px;
             position: relative;
         }
     }
     
     a {
         display: block;
-        @include transition(color -webkit-transform, .4s);
+        padding: 4px 12px;
         
-        &.selected, &:hover {
+        &:hover {
             color: #AAA;
         }
         
         &.selected {
-            @include translateX(10px);
+            color: #FFF !important;
+            @include text-shadow(rgba(0,0,0,0.5) 0 -1px);
+            @include border-radius(10px);
+            @include sunken;
         }
     }
 }
