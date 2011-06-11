@@ -24,8 +24,9 @@
         // Device settings
         $('a[href="#device-settings"]').click(function(e) {
             e.preventDefault();
-            $('#device-settings form').toggle();
+            $('#device-settings form').toggleClass('hidden');
         });
+        $('#device-settings form').show();
         
         $('#carrier-field').bind('change keyup', function() {
             var $field = $(this),
