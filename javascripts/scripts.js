@@ -12,6 +12,15 @@
         window.setInterval(updateTime, 1000);
         
         
+        // TOC
+        $('#toc a').click(function(e) {
+            window.location.hash = '!/' + $(this).attr('href')
+        });
+        if (window.location.hash.replace('#','').substr(0,2) == "!/") {
+            $('#device iframe').attr('src', window.location.hash.replace('#','').substr(2));
+        }
+        
+        
         // Device settings
         $('a[href="#device-settings"]').click(function(e) {
             e.preventDefault();
