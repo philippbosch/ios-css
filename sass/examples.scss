@@ -19,5 +19,10 @@ body {
     @include striped-background;
 }
 
+.content {
+    @include content-container;
+}
+
 @import "partials/examples/background";
 @import "partials/examples/navigationbar";
+@import "partials/examples/list";
