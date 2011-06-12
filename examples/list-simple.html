@@ -31,5 +31,13 @@
                 </section>
             </section>
         </div>
+        <script>
+            // Add a dummy touchstart handler to links in order to enable styling of a:active.
+            // You don't need that if you have your own touchstart handler already.
+            var links = document.getElementsByTagName('a');
+            for (var i=0, l=links.length; i<l; i++) {
+                links[i].addEventListener('touchstart', function() {});
+            }
+        </script>
     </body>
 </html>

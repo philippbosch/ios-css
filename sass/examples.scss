@@ -1,17 +1,8 @@
 @import "compass/reset";
 @import "compass";
+
 @import "ios-css";
-
-html {
-    height: 100%;
-}
-
-body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: Helvetica;
-}
+@import "ios-css/bootstrap";
 
 #app {
     width: 100%;
