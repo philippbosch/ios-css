@@ -11,9 +11,16 @@ The following mixins are currenty available:
   * `striped-background-alarm-clock`
   * `black-background`
   * `white-background`
+  * `gray-background`
 * `ios-css/navigationbar`
   * `navigationbar`
+  * `navigationbar-black`
+  * `navigationbar-noisy`
   * `has-navigationbar`
+* `ios-css/list`
+  * `list`
+
+Examples for all of them can be found on [the website](http://code.pb.io/ios-css/).
 
 ## Contributing
 
