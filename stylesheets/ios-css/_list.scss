@@ -1,7 +1,10 @@
-@mixin list($background-color: #FFF, $text-color: #000, $border-color: rgba(0,0,0,0.27)) {
+@mixin list($background-color: #FFF, $text-color: #000, $border-color: rgba(0,0,0,0.27), $tap-background-color: #194fdb, $tap-text-color: #fff) {
+    $border-radius: 8px;
+    
     background: $background-color;
     border: 1px solid $border-color;
-    @include border-radius(10px);
+    @include border-radius($border-radius);
+    font-size: 17px;
     
     li {
         height: 43px;
@@ -10,12 +13,22 @@
         
         &:first-child {
             border-top: 0;
+            
+            a {
+                @include border-top-radius($border-radius);
+            }
+        }
+        
+        &:last-child {
+            a {
+                @include border-bottom-radius($border-radius);
+            }
         }
         
         &, a {
             color: $text-color;
             font-weight: bold;
-            padding: 0 8px;
+            padding: 0 10px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -24,7 +37,12 @@
         a {
             display: block;
             text-decoration: none;
-            margin: 0 -8px;
+            margin: 0 -10px;
+            
+            &:active {
+                background-color: $tap-background-color;
+                color: $tap-text-color;
+            }
         }
     }
 }
