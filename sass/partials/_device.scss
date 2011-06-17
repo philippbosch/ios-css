@@ -14,6 +14,7 @@
         rgba(0,0,0,0.7) 1px 1px 10px
     );
     @include experimental(user-select, none);
+    background: #000;
     
     .statusbar {
         display: block;
@@ -173,6 +174,45 @@
         @include box-shadow(rgba(255,255,255,0.2) 0 0 2px 1px);
         @include border-top-radius(2px);
         line-height: 0;
+        
+        &.statusbar-style-black,
+        &.statusbar-style-black-translucent {
+            .statusbar {
+                background: black;
+                @include text-shadow(none);
+                border-bottom: 1px solid black;
+                
+                &, .time {
+                    color: #d2d2d2;
+                }
+            }
+            
+            .reception {
+                .segment {
+                    @include box-shadow(none);
+                    border-bottom: 1px solid #d2d2d2;
+                    
+                    &.active {
+                        background: #d2d2d2;
+                    }
+                }
+            }
+            
+            .battery {
+                background: transparent;
+                padding: 1px;
+                height: 6px;
+                width: 15px;
+                
+                &, &:after {
+                    border-color: #d2d2d2;
+                }
+                
+                .level {
+                    background: #d2d2d2;
+                }
+            }
+        }
     }
     
     iframe {
@@ -272,9 +312,14 @@
             display: block;
         }
         
-        input {
+        input, select {
             width: 100%;
             @include box-sizing(border-box);
+        }
+        
+        input, select, option {
+            font-family: inherit;
+            font-size: inherit;
         }
     }
 }
