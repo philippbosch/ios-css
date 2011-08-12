@@ -1,0 +1,100 @@
+@mixin tabbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include background(#000 linear-gradient(top, 
+        #1C1C1C 0%,
+        #1C1C1C 2%,
+        #575757 2%,
+        #303030 5%,
+        #141414 51%,
+        #000 51%,
+        #000 100%
+    ));
+    font-size: 12px;
+    height: 49px;
+    
+    ul {
+        display: -webkit-box;
+        -webkit-box-pack: justify;
+        height: 46px;
+    }
+    
+    li {
+        -webkit-box-flex: 1;
+        height: 42px;
+        margin-top: 3px;
+        list-style: none;
+        font-size: 10px;
+        text-align: center;
+        @include box-sizing(border-box);
+    }
+    
+    a {
+        display: block;
+        @include box-sizing(border-box);
+        height: 44px;
+        margin: 2px;
+        position: relative;
+        font-weight: bold;
+        @include border-radius(4px);
+        color: #999;
+        text-decoration: none;
+        padding-top: 33px;
+        overflow: hidden;
+    }
+    
+    .icon {
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        margin: 0px auto;
+        @include background(#555 linear-gradient(top, rgba(255,255,255,0.3) 25%, rgba(255,255,255,0) 75%));
+        @include transform-origin(50%, 0%);
+        @include scale(.5);
+        -webkit-mask-position: 50% 50%;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-image: image-url("tabbar-icon-flower.png");
+    }
+    
+    li.active {
+        a {
+            color: #FFF;
+            background: rgba(255,255,255,0.13);
+        }
+        
+        .icon {
+            // Compass (as of 0.12.0.alpha.0.d8e43bf) does not support angle values for
+            // the original (legacy) webkit gradient syntax. So we need to hack around it.
+            $support-for-original-webkit-gradients: false;
+            background: -webkit-gradient(linear, 0% 0%, 15% 100%, 
+                color-stop(0%, #fff), 
+                color-stop(67%, #7db9ee), 
+                color-stop(68%, #278df2),
+                color-stop(70%, rgba(#278df2,0))
+            ), -webkit-gradient(linear, 0% 0%, 0% 100%,
+                from(lighten(#0429e4, 10%)),
+                to(#40cefb)
+            );
+            @include background(linear-gradient(276deg,
+                #FFF 0%,
+                #7db9ee 55%,
+                rgba(#7db9ee,0) 55%
+            ), linear-gradient(top, 
+                #0429e4 0%,
+                #40cefb 100%
+            ));
+        }
+    }
+}
+
+
+@mixin tabbar-image($image) {
+    .icon {
+        -webkit-mask-image: image-url($image);
+    }
+}

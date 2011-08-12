@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.0.2"
-  s.date = "2011-06-07"
+  s.version = "0.1.0"
+  s.date = "2011-09-11"
 
   # Gem Details
   s.name = "ios-css"
@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
 
   # Gem Bookkeeping
   s.rubygems_version = %q{1.3.6}
-  s.add_dependency("compass", [">= 0.11.beta.3"])
+  s.add_dependency("compass", [">= 0.11.beta.5"])
 end

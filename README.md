@@ -6,6 +6,7 @@ ios-css is a [Compass](http://compass-style.org/) extension that aims to provide
 
 The following mixins are currenty available:
 
+* `ios-css/bootstrap`
 * `ios-css/backgrounds`
   * `striped-background`
   * `striped-background-alarm-clock`
@@ -19,6 +20,11 @@ The following mixins are currenty available:
   * `has-navigationbar`
 * `ios-css/list`
   * `list`
+  * `grouped-list`
+  * `list-chevron`
+* `ios-css/tabbar`
+  * `tabbar`
+  * `tabbar-image`
 
 Examples for all of them can be found on [the website][1].
 

@@ -1,34 +1,49 @@
-@mixin list($background-color: #FFF, $text-color: #000, $border-color: rgba(0,0,0,0.27), $tap-background-color: #194fdb, $tap-text-color: #fff) {
+$default-background-color: #FFF;
+$default-text-color: #000;
+$default-border-color: rgba(0,0,0,0.27);
+$default-tap-background-color: #0275ee;
+$default-tap-text-color: #fff;
+
+@mixin list($background-color: $default-background-color, $text-color: $default-text-color, $border-color: $default-border-color, $tap-background-color: $default-tap-background-color, $tap-text-color: $default-tap-text-color, $grouped: false) {
     $border-radius: 8px;
     
     background: $background-color;
-    border: 1px solid $border-color;
-    @include border-radius($border-radius);
+    @if $grouped {
+        border: 1px solid $border-color;
+        @include border-radius($border-radius);
+    } @else {
+        @include box-shadow($border-color 0 0 0 1px);
+    }
+    
     font-size: 17px;
     
     li {
-        height: 43px;
-        line-height: 43px;
+        min-height: 19px;
+        padding-top: 12px;
         border-top: 1px solid $border-color;
+        padding: 10px;
         
         &:first-child {
             border-top: 0;
             
-            a {
-                @include border-top-radius($border-radius);
+            @if $grouped {
+                a {
+                    @include border-top-radius($border-radius);
+                }
             }
         }
         
         &:last-child {
-            a {
-                @include border-bottom-radius($border-radius);
+            @if $grouped {
+                a {
+                    @include border-bottom-radius($border-radius);
+                }
             }
         }
         
         &, a {
             color: $text-color;
             font-weight: bold;
-            padding: 0 10px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -37,12 +52,25 @@
         a {
             display: block;
             text-decoration: none;
-            margin: 0 -10px;
+            margin: -10px;
+            padding: 10px;
             
-            &:active {
+            &.active {
                 background-color: $tap-background-color;
                 color: $tap-text-color;
             }
         }
     }
+}
+
+@mixin grouped-list($background-color: $default-background-color, $text-color: $default-text-color, $border-color: $default-border-color, $tap-background-color: $default-tap-background-color, $tap-text-color: $default-tap-text-color) {
+    @include list($background-color, $text-color, $border-color, $tap-background-color, $tap-text-color, $grouped: true);
+}
+
+@mixin list-chevron {
+    padding-right: 32px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAaCAYAAADbhS54AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkUwNzBCREJCQUIwMTFFMDk0QkU4MjlCQzZDMkM3MDQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkUwNzBCRENCQUIwMTFFMDk0QkU4MjlCQzZDMkM3MDQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGRTA3MEJEOUJBQjAxMUUwOTRCRTgyOUJDNkMyQzcwNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGRTA3MEJEQUJBQjAxMUUwOTRCRTgyOUJDNkMyQzcwNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pr4pXUUAAAEmSURBVHjazNaxrkRAFAbgmbkewSNIhFYlaiERLZF4PA29QmhFoafxBl6AxrlLYrNrV+69ezPmnGrGSeTLbzIHBQCyV1VVMM8z8TyPEsEl7YuyLKGu630LonHsDYq0bUvyPAehiRVFAU3TvDRWnMjk2DiOp02RybE4jqmiKOhw2xnDiGP7AhuOPW4w4djxwRFHKX3BZVkGl8OOuMfJsFfXddxx7Kzx02ddcWmawuWw3+D6vueGY/99wbIs1yeWJAkMw3DaV1WVRFHEZWRJn6I0TSNhGHKbo9InKF3XSRAEXIe79FeUYRjE933ufxwMI+oJhgl1h2FDrfV1u0DRobbEZFlGh9pgrutS0zRRoe5nzHEcalkWGtTTPWbb9gqBaZqEo9b6FmAAq7ewXOMrjpsAAAAASUVORK5CYII=');
+    background-position: right center;
+    background-repeat: no-repeat;
+    @include background-size(19px 13px);
 }
