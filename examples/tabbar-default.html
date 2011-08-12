@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ios-css examples: tabbar</title>
+        <link href="../stylesheets/examples.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <meta name="viewport" content="initial-scale=1, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+    </head>
+    <body>
+        <div id="app">
+            <section class="panel has-navigationbar">
+                <header class="navigationbar">
+                    <h1>Some title</h1>
+                </header>
+                <footer class="tabbar">
+                    <ul>
+                        <li class="one active">
+                            <a href="#">
+                                <span class="icon"></span>
+                                foo
+                            </a>
+                        </li>
+                        <li class="two">
+                            <a href="#">
+                                <span class="icon"></span>
+                                bar
+                            </a>
+                        </li>
+                        <li class="three">
+                            <a href="#">
+                                <span class="icon"></span>
+                                baz
+                            </a>
+                        </li>
+                    </ul>
+                </footer>
+                <section class="content">
+                    <ul class="grouped">
+                        <li>
+                            Foo
+                        </li>
+                        <li>
+                            Bar
+                        </li>
+                        <li>
+                            <a href="#">Baz</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+        <script>
+            var tabs = document.querySelectorAll('.tabbar li');
+            for (var i=0, l=tabs.length; i<l; i++) {
+                tabs[i].addEventListener('click', function() {
+                    document.querySelectorAll('.tabbar li');
+                    for (var j=0, k=tabs.length; j<k; j++) {
+                        tabs[j].className = tabs[j].className.replace(/ active/, '');
+                    }
+                    this.className += ' active';
+                });
+            }
+        </script>
+    </body>
+</html>

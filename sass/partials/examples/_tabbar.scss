@@ -1,0 +1,15 @@
+.tabbar {
+    @include tabbar;
+    
+    li.one {
+        @include tabbar-image("tabbar-icon-flower.png");
+    }
+    
+    li.two {
+        @include tabbar-image("tabbar-icon-luggage.png");
+    }
+    
+    li.three {
+        @include tabbar-image("tabbar-icon-ghost.png");
+    }
+}

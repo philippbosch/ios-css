@@ -1,5 +1,14 @@
 .panel {
-    ul {
+    ul.simple {
         @include list;
+    }
+    
+    ul.grouped {
+        @include grouped-list;
+        margin-bottom: 10px;
+    }
+    
+    ul.grouped li a {
+        @include list-chevron;
     }
 }
