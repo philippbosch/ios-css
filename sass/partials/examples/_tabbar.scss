@@ -10,6 +10,6 @@
     }
     
     li.three {
-        @include tabbar-image("tabbar-icon-ghost.png");
+        @include tabbar-image("tabbar-icon-microphone.svg", $size: 16px 24px, $position: 50% 3px);
     }
 }
