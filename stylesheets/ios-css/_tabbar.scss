@@ -54,9 +54,7 @@
         height: 30px;
         margin: 0px auto;
         @include background(#555 linear-gradient(top, rgba(255,255,255,0.3) 25%, rgba(255,255,255,0) 75%));
-        -webkit-mask-position: 50% 0%;
         -webkit-mask-repeat: no-repeat;
-        -webkit-mask-size: 30px 30px;
     }
     
     li.active {
@@ -90,8 +88,10 @@
 }
 
 
-@mixin tabbar-image($image) {
+@mixin tabbar-image($image, $size: 30px 30px, $position: 50% 0%) {
     .icon {
         -webkit-mask-image: image-url($image);
+        -webkit-mask-size: $size;
+        -webkit-mask-position: $position;
     }
 }
