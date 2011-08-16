@@ -8,9 +8,9 @@ module Sass::Script::Functions
   def noise(kwargs = {})
     opts = {}
     Sass::Util.map_hash({
-        "amount"     => [0..1,          "",   :Number, Sass::Script::Number.new(0.5) ],
-        "opacity"    => [0..1,          "",   :Number, Sass::Script::Number.new(0.08)],
-        "size"       => [1..512,        "px", :Number, Sass::Script::Number.new(200) ],
+        "amount"     => [0..1,          "",   :Number, Sass::Script::Number.new(0.9) ],
+        "opacity"    => [0..1,          "",   :Number, Sass::Script::Number.new(0.05)],
+        "size"       => [1..512,        "px", :Number, Sass::Script::Number.new(100) ],
         "monochrome" => [[true, false], "",   :Bool,   Sass::Script::Bool.new(false) ]
       }) do |name, (range, units, type, default)|
       
@@ -33,6 +33,7 @@ module Sass::Script::Functions
        r = rand(255)
        a = rand(255 * opts["opacity"].to_s.to_f)
        color = opts["monochrome"] ? ChunkyPNG::Color.rgba(r, r, r, a) : ChunkyPNG::Color.rgba(r, rand(255), rand(255), a)
+       puts color
        image.set_pixel(x, y, color)
     end
     
