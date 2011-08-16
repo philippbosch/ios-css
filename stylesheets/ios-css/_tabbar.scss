@@ -51,13 +51,12 @@
         top: 2px;
         left: 0;
         width: 100%;
-        height: 60px;
+        height: 30px;
         margin: 0px auto;
         @include background(#555 linear-gradient(top, rgba(255,255,255,0.3) 25%, rgba(255,255,255,0) 75%));
-        @include transform-origin(50%, 0%);
-        @include scale(.5);
-        -webkit-mask-position: 50% 50%;
+        -webkit-mask-position: 50% 0%;
         -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: 30px 30px;
     }
     
     li.active {
@@ -70,19 +69,18 @@
             // Compass (as of 0.12.0.alpha.0.d8e43bf) does not support angle values for
             // the original (legacy) webkit gradient syntax. So we need to hack around it.
             $support-for-original-webkit-gradients: false;
-            background: -webkit-gradient(linear, 0% 0%, 15% 100%, 
+            background: -webkit-gradient(linear, 0% 0%, 3% 100%, 
                 color-stop(0%, #fff), 
-                color-stop(67%, #7db9ee), 
-                color-stop(68%, #278df2),
-                color-stop(70%, rgba(#278df2,0))
+                color-stop(74%, #7db9ee), 
+                color-stop(75%, rgba(#7db9ee, 0))
             ), -webkit-gradient(linear, 0% 0%, 0% 100%,
-                from(lighten(#0429e4, 10%)),
+                from(#0429e4),
                 to(#40cefb)
             );
             @include background(linear-gradient(276deg,
                 #FFF 0%,
-                #7db9ee 55%,
-                rgba(#7db9ee,0) 55%
+                #7db9ee 52%,
+                rgba(#7db9ee,0) 52%
             ), linear-gradient(top, 
                 #0429e4 0%,
                 #40cefb 100%
