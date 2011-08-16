@@ -10,9 +10,9 @@
     @include navigationbar(green);
 }
 
-.navigationbar.green-noisy{
-    @include navigationbar-noisy(#530);
-}
+//.navigationbar.green-noisy{
+//    @include navigationbar-noisy(#530);
+//}
 
 .has-navigationbar {
     @include has-navigationbar;

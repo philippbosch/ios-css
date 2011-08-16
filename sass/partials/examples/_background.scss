@@ -17,9 +17,9 @@
         @include gray-background;
     }
     
-    &.custom-color-noisy-background {
-        @include background(noise($amount: 0.8, $opacity: 0.08, $monochrome: true));
-        background-color: lighten(yellow, 40%);
-        @include background-size(auto);
-    }
+    //&.custom-color-noisy-background {
+    //    @include background(noise($amount: 0.8, $opacity: 0.08, $monochrome: true));
+    //    background-color: lighten(yellow, 40%);
+    //    @include background-size(auto);
+    //}
 }

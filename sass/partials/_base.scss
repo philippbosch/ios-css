@@ -6,7 +6,7 @@ body {
     font-family: "Droid Sans", sans-serif;
     font-size: 12px;
     font-weight: 300;
-    background: #707070 noise();
+    background: #707070 url("http://noisepng.com/100-90-5.png");
     color: #444;
 }
 
@@ -22,7 +22,7 @@ h1, h2 {
     color: #444;
     font-weight: bold;
     @include text-shadow(
-        rgba(255,255,255,0.3) 0 1px,
+        rgba(255,255,255,0.2) 0 1px,
         rgba(0,0,0,0.7) 0 -1px
     );
 }

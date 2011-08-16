@@ -1,4 +1,4 @@
-require "ios-css"
+# require "ios-css"
 
 # Set this to the root of your project when deployed:
 http_path = "/ios-css/"
@@ -6,6 +6,7 @@ css_dir = "stylesheets"
 sass_dir = "sass"
 images_dir = "images"
 javascripts_dir = "javascripts"
+extensions_dir = "extensions"
 
 # You can select your preferred output style here (can be overridden via the command line):
 output_style = :compressed
