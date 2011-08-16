@@ -6,7 +6,7 @@ body {
     font-family: "Droid Sans", sans-serif;
     font-size: 12px;
     font-weight: 300;
-    background: #707070 url("http://noisepng.com/100-90-5.png");
+    background: #707070 noise($opacity: 0.08, $amount: 0.9, $monochrome: true);
     color: #444;
 }
 

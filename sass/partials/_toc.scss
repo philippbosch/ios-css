@@ -7,8 +7,7 @@
     
     @mixin sunken {
         @include background(
-            linear-gradient(top, rgba(255,255,255,0.4), rgba(255,255,255,0)),
-            url("http://noisepng.com/100-90-8-monochrome.png")
+            linear-gradient(top, rgba(255,255,255,0.4), rgba(255,255,255,0))
         );
         background-color: rgba(255,255,255,0.1);
         @include box-shadow(
